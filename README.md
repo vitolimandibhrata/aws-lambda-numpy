@@ -4,6 +4,7 @@ NumPy Python Library for AWS Lambda
 This is a custom compiled NumPy library for Python. 
 
 The AMI image of AWS Lambda does not have the required dependencies as listed below:
+
 1. Blas
 2. Lapack
 3. Atlas
