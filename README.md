@@ -55,15 +55,20 @@ Create /var/task/lib to contain the runtime libraries
 
 Copy the following library files to the /var/task/lib
 
-	cp /usr/lib64/atlas-sse3/liblapack.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libptf77blas.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libf77blas.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libptcblas.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libcblas.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libatlas.so.3 /var/task/lib/.
-	cp /usr/lib64/atlas-sse3/libptf77blas.so.3 /var/task/lib/.
-	cp /usr/lib64/libgfortran.so.3 /var/task/lib/.
-	cp /usr/lib64/libquadmath.so.0 /var/task/lib/.
+	function long_copy()
+	{
+		for f in $1* ; do cp -P "$f" /var/task/lib/. ; done
+	}
+	
+	long_copy /usr/lib64/atlas-sse3/liblapack.so
+	long_copy /usr/lib64/atlas-sse3/libptf77blas.so
+	long_copy /usr/lib64/atlas-sse3/libf77blas.so
+	long_copy /usr/lib64/atlas-sse3/libptcblas.so
+	long_copy /usr/lib64/atlas-sse3/libcblas.so
+	long_copy /usr/lib64/atlas-sse3/libatlas.so
+	long_copy /usr/lib64/atlas-sse3/libptf77blas.so
+	long_copy /usr/lib64/libgfortran.so
+	long_copy /usr/lib64/libquadmath.so
 
 Get the latest numpy source code from http://sourceforge.net/projects/numpy/files/NumPy/
 
